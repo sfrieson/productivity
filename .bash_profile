@@ -32,7 +32,7 @@ gmi () {
   SOURCE_BRANCH=$(current_branch)
   gco $1
   git pull $SOURCE_BRANCH
-  git merge $SOURCE_BRANCH
+  git merge --no-edit $SOURCE_BRANCH
   if [ $? != "0" ];
   then
     git status
