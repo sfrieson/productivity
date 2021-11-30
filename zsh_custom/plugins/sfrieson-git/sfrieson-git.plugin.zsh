@@ -7,7 +7,7 @@ alias gmm='git fetch origin $(git_main_branch) && git merge origin/"$(git_main_b
 alias gbg='git branch | grep'
 alias gpo='git push --set-upstream origin $(git_current_branch)'
 alias gl='git log --oneline'
-alias gmc='git merge --continue'
+alias gmc='git merge --continue --no-edit'
 
 ### functions
 
