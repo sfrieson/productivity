@@ -8,6 +8,7 @@ alias gbg='git branch | grep'
 alias gpo='git push --set-upstream origin $(git_current_branch)'
 alias gl='git log --oneline'
 alias gmc='git merge --continue --no-edit'
+alias gcob='git checkout -b'
 
 ### functions
 
