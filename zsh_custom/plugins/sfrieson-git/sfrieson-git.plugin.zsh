@@ -1,4 +1,8 @@
-alias gacm="git add -A && git commit -m"
+replaced () {
+    echo "$1 was replaced. Use: \n$2 ${@:3}"
+    $(exit 1)
+}
+alias gacm="replaced gacm gcam"
 alias gs="git status -s"
 alias gcm="git commit -m"
 alias gamend="echo 'use gc! or gca!' && git commit --amend"
@@ -7,14 +11,14 @@ alias gmm='git fetch origin $(git_main_branch) && git merge origin/"$(git_main_b
 alias gbg='git branch | grep'
 alias gpo='git push --set-upstream origin $(git_current_branch)'
 alias gl='git log --oneline'
-alias gmc='git merge --continue --no-edit'
+alias gmc='git merge --continue'
 alias gcob='git checkout -b'
-
+alias gcog='replaced gcog gswg'
 ### functions
 
-# checkout grepped branch
-gcog () {
-    gco $(gbg $1)
+# switch grepped branch
+gswg () {
+    gsw $(gbg $1)
 }
 
 # merge current into
