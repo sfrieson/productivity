@@ -14,6 +14,8 @@ alias gl='git log --oneline'
 alias gmc='git merge --continue'
 alias gcob='git checkout -b'
 alias gcog='replaced gcog gswg'
+alias gbl='git branch --list'
+
 ### functions
 
 # switch grepped branch
