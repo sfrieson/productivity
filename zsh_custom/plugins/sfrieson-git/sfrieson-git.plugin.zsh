@@ -34,3 +34,10 @@ gmi () {
         echo "There are merge conflicts between $(git_current_branch) and $SOURCE_BRANCH"
     fi
 }
+
+# force delete branches that have been removed from remote
+gbclean () {
+    git fetch --prune
+    # using force delete -D because we use squash commits, which don't work with -d
+    git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D
+}
