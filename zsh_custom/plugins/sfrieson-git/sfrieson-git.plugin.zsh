@@ -1,4 +1,4 @@
-replaced () {
+replaced() {
     echo "$1 was replaced. Use: \n$2 ${@:3}"
     $(exit 1)
 }
@@ -15,16 +15,17 @@ alias gmc='git merge --continue'
 alias gcob='git checkout -b'
 alias gcog='replaced gcog gswg'
 alias gbl='git branch --list'
+alias ghistory='git log -p -S'
 
 ### functions
 
 # switch grepped branch
-gswg () {
+gswg() {
     gsw $(gbg $1)
 }
 
 # merge current into
-gmi () {
+gmi() {
     SOURCE_BRANCH=$(git_current_branch)
     git pull
     gco $1
@@ -36,7 +37,7 @@ gmi () {
 }
 
 # force delete branches that have been removed from remote
-gbclean () {
+gbclean() {
     git fetch --prune
     # using force delete -D because we use squash commits, which don't work with -d
     git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D
