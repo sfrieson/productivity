@@ -15,7 +15,7 @@ alias gmc='git merge --continue'
 alias gcob='git checkout -b'
 alias gcog='replaced gcog gswg'
 alias gbl='git branch --list'
-alias ghistory='git log -p -S'
+alias gsearch='git log -p -S'
 
 ### functions
 
