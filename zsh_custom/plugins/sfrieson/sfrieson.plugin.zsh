@@ -24,6 +24,9 @@ alias show_desktop="defaults write com.apple.finder CreateDesktop -bool true && 
 alias hide_files="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
 alias show_files="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 
+# Restart gpg-agent
+alias gpg_restart="gpgconf --kill gpg-agent && gpg-agent --daemon"
+
 # ===================
 # Application Aliases
 # ===================
@@ -36,10 +39,9 @@ alias python='python3'
 # Functions
 # =========
 
-publicip () {
-    for i in $( ifconfig | grep broadcast ); do
-        if echo $i | grep -e "\d"
-        then
+publicip() {
+    for i in $(ifconfig | grep broadcast); do
+        if echo $i | grep -e "\d"; then
             break
         fi
     done
