@@ -30,6 +30,7 @@ alias show_files="defaults write com.apple.finder AppleShowAllFiles TRUE && kill
 
 alias chrome='open -a "Google Chrome"'
 alias firefox='/Applications/Firefox.app/Contents/MacOS/firefox'
+alias python='python3'
 
 # =========
 # Functions
