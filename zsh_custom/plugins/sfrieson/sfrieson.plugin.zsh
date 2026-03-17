@@ -33,7 +33,8 @@ alias gpg_restart="gpgconf --kill gpg-agent && gpg-agent --daemon"
 
 alias chrome='open -a "Google Chrome"'
 alias firefox='/Applications/Firefox.app/Contents/MacOS/firefox'
-alias python='python3'
+# alias python='python3'
+# alias pip='pip3'
 
 # =========
 # Functions
