@@ -12,6 +12,7 @@ git config --global --edit
 ```
 
 ## OMZ Plugin
+Install Oh My Zsh from [their website](https://ohmyz.sh/).
 
 ### Installation
 
