@@ -1,7 +1,7 @@
 ---
 name: beads
 description: "Load beads (br) issue tracker reference. Use when working with tickets, issues, epics, dependencies, or project planning. Covers important br CLI commands, workflows, and this project's conventions."
-argument-hint: '[command or topic]'
+argument-hint: "[command or topic]"
 ---
 
 # Beads Issue Tracker (`br`) — Quick Reference
@@ -10,8 +10,8 @@ argument-hint: '[command or topic]'
 
 ## Project conventions
 
-- **Issue prefix**: `mall` (e.g., `mall-105`, `mall-3va`)
-- **Issue types**: `epic` or `task`
+- **Issue prefix**: `bd` (e.g., `bd-105`, `bd-3va`)
+- **Issue types**: `epic`, `task`, `bug`, `feature`, `chore`
 - **Statuses**: `open` → `in_progress` → `closed` (also `deferred`)
 - **Epics** have child tasks via parent-child dependencies
 - **No auth** — single user, no assignee conventions needed
@@ -52,6 +52,10 @@ br close mall-105 --suggest-next
 
 # Claim a task (sets assignee + status=in_progress atomically)
 br update mall-105 --claim
+
+# Setting acceptance criteria — use --acceptance=... (with =) for multi-line content;
+br update mall-105 --acceptance="- [ ] First criterion
+- [ ] Second criterion"
 ```
 
 ## Dependencies
@@ -73,6 +77,8 @@ br dep tree mall-105
 Dependency types: `blocks` (default), `parent-child`, `conditional-blocks`, `waits-for`.
 
 ## Epics
+
+There is no need to doubly link tickets. Having the epic set as the parent on individual tickets is good enough. Use these commands to query the other direction.
 
 ```bash
 # See progress across all epics
@@ -104,11 +110,17 @@ br comments mall-105
 ## Other useful commands
 
 ```bash
-br create -f issues.md   # Create multiple issues from a markdown file
+br create -f issues.md   # Bulk create issues from a markdown file
 br blocked               # All blocked issues
 br changelog             # Generate changelog from closed issues
 br --help                # Learn about commands
 br q                     # fastest way to capture — just type the title words after it
 ```
+
+### Bulk `issues.md` grammar
+
+- Each issue starts with an H2 line: `## Issue Title`
+- Per-issue sections are H3 lines: `### Section Name`
+- Recognized sections (case-insensitive): ID, Priority, Type, Description, Design, Acceptance Criteria (alias Acceptance), Assignee, Labels, Dependencies (alias Deps)
 
 $ARGUMENTS
